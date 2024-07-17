@@ -30,6 +30,11 @@ if INGREDIENT_LIST :
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered!', icon="✅")
 
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response.json())
+fv_Df= st.dataframe(data=fruityvice_response.json(),use_container_Width=True)
+
         
 
 
